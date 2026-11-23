@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abdullah | Video Editor — ممنتج ريلز</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5EFE3; --surface:#FBF7EE; --ink:#26241F; --muted:#6A655A;
+  --line:#DED5C2; --blue:#1F4A3C; --coral:#A85A14; --sun:#D9C7A0;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Inter","Cairo",system-ui,sans-serif;font-size:18px;line-height:1.8}
+h1,h2,h3{font-family:"Inter","Cairo",system-ui,sans-serif;line-height:1.3;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* top bar */
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.logo{font-family:"Inter","Cairo",sans-serif;font-size:22px;font-weight:700;text-decoration:none}
+nav{display:flex;gap:22px;font-size:16px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+@media (max-width:640px){header{flex-direction:column;gap:4px;text-align:center}nav{justify-content:center}}
+
+/* hero */
+.hero{padding:48px 0 28px}
+.hero h1{font-size:clamp(40px,8vw,88px);font-weight:700;max-width:14ch}
+.hero p{max-width:34em;color:var(--muted);margin:22px 0 28px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:17px;border:2px solid var(--blue);background:var(--blue);color:#fff}
+.btn.main{background:var(--coral);border-color:var(--coral);color:#fff}
+.btn:hover{transform:translateY(-2px)}
+
+/* timeline: the one memorable element */
+.timeline{position:relative;margin:44px 0 10px;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;direction:ltr}
+.track{display:flex;gap:6px;height:34px;margin:6px 0}
+.clip{border-radius:6px;display:flex;align-items:center;padding:0 10px;font-size:13px;color:#fff;white-space:nowrap;overflow:hidden}
+.c1{background:var(--blue)}.c2{background:var(--coral)}.c3{background:#7A5C3A}.c4{background:#6F6A57}.c5{background:var(--sun);color:#26241F}
+.gap{flex:none}
+.playhead{position:absolute;top:0;bottom:0;left:0;width:2px;background:var(--coral);animation:scrub 3.2s cubic-bezier(.6,0,.3,1) 1 forwards}
+.playhead::before{content:"";position:absolute;top:0;left:-6px;border:7px solid transparent;border-top:10px solid var(--coral);border-bottom:0}
+@keyframes scrub{from{left:0}to{left:calc(100% - 2px)}}
+.tl-note{font-size:14px;color:var(--muted);margin:6px 2px 0}
+
+/* work */
+section{padding:64px 0 8px}
+.head{display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:16px;margin-bottom:26px}
+.head h2{font-size:clamp(30px,5vw,46px)}
+.tabs{display:flex;gap:8px}
+.tab{font:inherit;font-size:16px;padding:8px 20px;border-radius:999px;border:2px solid var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;align-items:start}
+.card{text-decoration:none;display:block}
+.poster{position:relative;border-radius:14px;overflow:hidden;display:grid;place-items:center;color:#fff}
+.reel .poster{aspect-ratio:9/16}
+.motion{grid-column:span 2}
+.motion .poster{aspect-ratio:16/9}
+.g1{background:linear-gradient(160deg,#26241F,#A85A14)}
+.g2{background:linear-gradient(160deg,#1F4A3C,#5E7F66)}
+.g3{background:linear-gradient(160deg,#A85A14,#D9B26A)}
+.g4{background:linear-gradient(160deg,#5E7F66,#26241F)}
+.g5{background:linear-gradient(160deg,#26241F,#1F4A3C)}
+.play{width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;transition:transform .2s}
+.play::after{content:"";border:10px solid transparent;border-right:0;border-left:16px solid #26241F;margin-left:-4px}
+.card:hover .play{transform:scale(1.12)}
+.card h3{font-size:20px;margin:12px 0 0}
+.card span{font-size:15px;color:var(--muted)}
+.hide{display:none}
+.poster video{width:100%;height:100%;object-fit:cover;display:block;background:#26241F}
+figure.card{margin:0}
+@media (max-width:560px){.motion{grid-column:span 1}}
+
+/* tools + contact */
+.tools{display:flex;flex-wrap:wrap;gap:10px}
+.tools li{list-style:none;padding:8px 18px;border:2px solid var(--line);border-radius:999px;background:var(--surface)}
+ul.tools{padding:0;margin:0}
+.contact{margin:40px 0 0;padding:44px 28px;border-radius:22px;background:var(--blue);color:#fff;text-align:center}
+.contact h2{font-size:clamp(28px,5vw,44px)}
+.contact p{margin:12px auto 22px;max-width:30em}
+.contact .btn{background:#FBF7EE;color:#26241F;border-color:#FBF7EE}
+footer{padding:30px 0 40px;color:var(--muted);font-size:15px;text-align:center}
+@media (prefers-reduced-motion:reduce){.playhead{animation:none;left:calc(100% - 2px)}*{transition:none!important;scroll-behavior:auto!important}}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card h3{font-size:16px;margin-top:8px}.card span{font-size:13px}.poster{border-radius:10px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#top" dir="ltr">Abdullah | Video Editor</a>
+    <nav aria-label="التنقل">
+      <a href="#work">الأعمال</a><a href="#tools">البرامج</a><a href="#contact">تواصل</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <h1>عبدالله | ممنتج ريلز</h1>
+      <p>أنا عبدالله، ممنتج فيديو متخصص في الريلز القصيرة. أشتغل على Adobe Premiere Pro وAfter Effects. للطلب أو الاستفسار تواصل معي على واتساب.</p>
+      <div class="btns">
+        <a class="btn main" href="#work">شاهد الأعمال</a>
+        <a class="btn" href="#contact">ابدأ مشروعك</a>
+      </div>
+
+      <div class="timeline" aria-hidden="true">
+        <div class="track"><div class="clip c1" style="width:22%">ريل</div><div class="clip c2" style="width:14%">انتقال</div><div class="clip c3" style="width:30%">مونتاج</div><div class="clip c1" style="width:18%">ريل</div><div class="clip c4" style="width:12%">لوغو</div></div>
+        <div class="track"><div class="gap" style="width:8%"></div><div class="clip c5" style="width:26%">ترجمة</div><div class="gap" style="width:6%"></div><div class="clip c2" style="width:34%">تلوين</div><div class="clip c3" style="width:16%">صوت</div></div>
+        <div class="playhead"></div>
+      </div>
+    </div>
+
+    <section id="work" aria-labelledby="wt">
+      <div class="head">
+        <h2 id="wt">الأعمال</h2>
+      </div>
+
+      <div class="grid">
+        <figure class="card reel"><div class="poster g5"><video controls playsinline preload="none" poster="reel1.jpg" src="reel1.mp4"></video></div><h3>أكثر من الاستغفار</h3><span>ريل · 11 ثانية</span></figure>
+        <figure class="card reel"><div class="poster g5"><video controls playsinline preload="none" poster="reel2.jpg" src="reel2.mp4"></video></div><h3>سورة الحجرات</h3><span>ريل · 20 ثانية</span></figure>
+        <figure class="card reel"><div class="poster g5"><video controls playsinline preload="none" poster="reel3.jpg" src="reel3.mp4"></video></div><h3>شاهي</h3><span>ريل · 24 ثانية</span></figure>
+        <figure class="card reel"><div class="poster g5"><video controls playsinline preload="none" poster="reel4.jpg" src="reel4.mp4"></video></div><h3>كولاج</h3><span>ريل · 14 ثانية</span></figure>
+      </div>
+    </section>
+
+    <section id="tools" aria-labelledby="tt">
+      <div class="head"><h2 id="tt">البرامج</h2></div>
+      <ul class="tools">
+        <li>Adobe Premiere Pro</li><li>Adobe After Effects</li>
+      </ul>
+    </section>
+
+    <section id="contact" aria-labelledby="ct">
+      <div class="contact">
+        <h2 id="ct">عندك فكرة؟ نحوّلها لفيديو</h2>
+        <p>أخبرني عن مشروعك والمدة المطلوبة، وأرد عليك خلال يوم.</p>
+        <div class="btns" style="justify-content:center">
+          <a class="btn" href="https://wa.me/966556571005" target="_blank" rel="noopener">واتساب</a>
+          <a class="btn" href="https://instagram.com/a4.abdullah11" target="_blank" rel="noopener">إنستغرام</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>© <span id="y">2026</span> <span dir="ltr">Abdullah | Video Editor</span></footer>
+</div>
+
+<script>
+(function(){
+  var tabs=document.querySelectorAll('.tab'),cards=document.querySelectorAll('.card');
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var f=t.dataset.f;
+      tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t?'true':'false')});
+      cards.forEach(function(c){c.classList.toggle('hide',f!=='all'&&c.dataset.t!==f)});
+    });
+  });
+})();
+</script>
+</body>
+</html>
